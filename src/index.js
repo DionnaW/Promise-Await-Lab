@@ -50,6 +50,8 @@ const dbs = {
 getUserData(5)
   .then(userData => console.log(userData))
   .catch(error => console.error(error));
+  console.log(getUserData);
+  console.log(db1);
 
 // Test with various id values:
 // Valid numbers: 1 through 10
