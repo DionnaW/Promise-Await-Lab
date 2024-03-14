@@ -1,5 +1,5 @@
 // Importing database functions. DO NOT MODIFY THIS LINE.
-import { central, db1, db2, db3, vault } from "./databases";
+import { central, db1, db2, db3, vault } from "./databases.js";
 
 async function getUserData(id) {
   // Validate input id
@@ -12,22 +12,22 @@ async function getUserData(id) {
     const dbName = await central(id);
 
     // Use Promise.all to query databases concurrently
-    const [basicInfo, personalInfo] = await Promise.all([dbs[dbName](id), vault(id)]);
+    const [basicInfo, myInfo] = await Promise.all([dbs[dbName](id), vault(id)]);
 
     // Assemble the final user data object
     const userData = {
       id: id,
-      name: personalInfo.name,
+      name: myInfo.name,
       username: basicInfo.username,
-      email: personalInfo.email,
+      email: myInfoInfo.email,
       address: {
-        street: personalInfo.address.street,
-        suite: personalInfo.address.suite,
-        city: personalInfo.address.city,
-        zipcode: personalInfo.address.zipcode,
-        geo: personalInfo.address.geo
+        street: myInfo.address.street,
+        suite: myInfo.address.suite,
+        city: myInfo.address.city,
+        zipcode: myInfo.address.zipcode,
+        geo: myInfo.address.geo
       },
-      phone: personalInfo.phone,
+      phone: myInfo.phone,
       website: basicInfo.website,
       company: basicInfo.company
     };
