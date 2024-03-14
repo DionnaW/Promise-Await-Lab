@@ -19,7 +19,7 @@ async function getUserData(id) {
       id: id,
       name: myInfo.name,
       username: basicInfo.username,
-      email: myInfoInfo.email,
+      email: myInfo.email,
       address: {
         street: myInfo.address.street,
         suite: myInfo.address.suite,
